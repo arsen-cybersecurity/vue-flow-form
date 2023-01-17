@@ -113,7 +113,7 @@ export default class QuestionModel {
     this.jump = null
     this.placeholder = null
     this.mask = ''
-    this.customComponent = null
+    this.component = null
     this.multiple = false
     this.allowOther = false
     this.other = null

@@ -2,7 +2,7 @@
   <div class="f-content" v-if="question.content">
     <span class="f-section-text">{{ question.content }}</span>
   </div>
-  <component :is="question.customComponent" />
+  <component :is="question.component" />
 </template>
 
 <script>

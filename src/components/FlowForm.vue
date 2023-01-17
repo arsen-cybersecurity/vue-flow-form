@@ -324,16 +324,17 @@
                   const props = q.props
                   const componentInstance = this.getInstance(props.id)
                   let model = new QuestionModel()
-
+                  
                   if (componentInstance.question !== null) {
                     model = componentInstance.question
                   } 
-
+                  
                   if (props.modelValue) {
                     model.answer = props.modelValue
                   }
 
                   Object.keys(model).forEach(key => {
+
                     if (props[key] !== undefined) {
                       if (typeof model[key] === 'boolean') {
                         model[key] = props[key] !== false
@@ -356,6 +357,7 @@
 
                         model[key] = options
                       } else {
+                  
                         switch(key) {
                           case 'type':
                             if (Object.values(QuestionType).indexOf(props[key]) !== -1) {
@@ -377,7 +379,6 @@
                       }
                     }
                   })
-
                   componentInstance.question = model
 
                   model.resetOptions()
