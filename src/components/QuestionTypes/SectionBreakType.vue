@@ -1,6 +1,7 @@
 <template>
   <div class="f-content" v-if="question.content">
     <span class="f-section-text">{{ question.content }}</span>
+    <slot />
   </div>
 </template>
 
