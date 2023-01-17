@@ -1,8 +1,8 @@
 <template>
   <div class="f-content" v-if="question.content">
     <span class="f-section-text">{{ question.content }}</span>
-    <slot />
   </div>
+  <component :is="question.customComponent" />
 </template>
 
 <script>
