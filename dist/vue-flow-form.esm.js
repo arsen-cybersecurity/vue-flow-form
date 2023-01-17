@@ -174,7 +174,7 @@ var QuestionModel = function QuestionModel(options) {
   this.jump = null;
   this.placeholder = null;
   this.mask = '';
-  this.customComponent = null;
+  this.component = null;
   this.multiple = false;
   this.allowOther = false;
   this.other = null;
@@ -1641,7 +1641,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
           createElementVNode("span", _hoisted_2$4, toDisplayString(_ctx.question.content), 1 /* TEXT */)
         ]))
       : createCommentVNode("v-if", true),
-    (openBlock(), createBlock(resolveDynamicComponent(_ctx.question.customComponent)))
+    (openBlock(), createBlock(resolveDynamicComponent(_ctx.question.component)))
   ], 64 /* STABLE_FRAGMENT */))
 }
 
@@ -3023,16 +3023,17 @@ var script$1 = {
                   var props = q.props;
                   var componentInstance = this$1$1.getInstance(props.id);
                   var model = new QuestionModel();
-
+                  
                   if (componentInstance.question !== null) {
                     model = componentInstance.question;
                   } 
-
+                  
                   if (props.modelValue) {
                     model.answer = props.modelValue;
                   }
 
                   Object.keys(model).forEach(function (key) {
+
                     if (props[key] !== undefined) {
                       if (typeof model[key] === 'boolean') {
                         model[key] = props[key] !== false;
@@ -3055,6 +3056,7 @@ var script$1 = {
 
                         model[key] = options;
                       } else {
+                  
                         switch(key) {
                           case 'type':
                             if (Object.values(QuestionType).indexOf(props[key]) !== -1) {
@@ -3076,7 +3078,6 @@ var script$1 = {
                       }
                     }
                   });
-
                   componentInstance.question = model;
 
                   model.resetOptions();
