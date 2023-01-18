@@ -2639,7 +2639,7 @@ var _hoisted_9$1 = {
   key: 2,
   class: "f-sub"
 };
-var _hoisted_10$1 = { key: 0 };
+var _hoisted_10$1 = ["innerHTML"];
 var _hoisted_11$1 = ["innerHTML"];
 var _hoisted_12$1 = {
   key: 2,
@@ -2725,7 +2725,10 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
           ($options.showHelperText)
             ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9$1, [
                 ($props.question.subtitle)
-                  ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_10$1, vue.toDisplayString($props.question.subtitle), 1 /* TEXT */))
+                  ? (vue.openBlock(), vue.createElementBlock("span", {
+                      key: 0,
+                      innerHTML: $props.question.subtitl
+                    }, null, 8 /* PROPS */, _hoisted_10$1))
                   : vue.createCommentVNode("v-if", true),
                 ($props.question.type === $data.QuestionType.LongText && !_ctx.isMobile)
                   ? (vue.openBlock(), vue.createElementBlock("span", {
