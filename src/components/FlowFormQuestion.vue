@@ -30,7 +30,7 @@
           </template>
 
           <span class="f-sub" v-if="showHelperText">
-            <span v-if="question.subtitle">{{ question.subtitle }}</span>
+            <span v-if="question.subtitle" v-html="question.subtitl"/>
 
             <span class="f-help" v-if="question.type === QuestionType.LongText && !isMobile" v-html="question.helpText || language.formatString(language.longTextHelpText)"></span>
 
