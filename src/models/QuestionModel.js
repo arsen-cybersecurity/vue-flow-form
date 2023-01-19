@@ -114,6 +114,7 @@ export default class QuestionModel {
     this.placeholder = null
     this.mask = ''
     this.component = null
+    this.validate = () => true 
     this.multiple = false
     this.allowOther = false
     this.other = null

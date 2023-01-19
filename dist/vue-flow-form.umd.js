@@ -179,6 +179,7 @@
     this.placeholder = null;
     this.mask = '';
     this.component = null;
+    this.validate = function () { return true; }; 
     this.multiple = false;
     this.allowOther = false;
     this.other = null;
@@ -481,6 +482,7 @@
             return true
           }
 
+
           return false
         },
         
@@ -564,7 +566,7 @@
 
   var _hoisted_1$9 = { class: "faux-form" };
   var _hoisted_2$7 = ["value", "required"];
-  var _hoisted_3$5 = {
+  var _hoisted_3$6 = {
     key: 0,
     label: " ",
     value: "",
@@ -618,7 +620,7 @@
         required: _ctx.question.required
       }, [
         (_ctx.question.required)
-          ? (vue.openBlock(), vue.createElementBlock("option", _hoisted_3$5, " "))
+          ? (vue.openBlock(), vue.createElementBlock("option", _hoisted_3$6, " "))
           : vue.createCommentVNode("v-if", true),
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(_ctx.question.options, function (option, index) {
           return (vue.openBlock(), vue.createElementBlock("option", {
@@ -878,17 +880,30 @@
       data: function data() {
         return {
           inputType: 'text',
-          canReceiveFocus: true
+          canReceiveFocus: true,
+          error: '',
         }
       },
 
       methods: {
         validate: function validate() {
+          this.error = '';
+
           if (this.question.mask && this.hasValue) {
             return this.validateMask()
           }
 
-          return !this.question.required || this.hasValue
+          if (!this.question.required || this.hasValue) {
+            var result = this.question.validate(this.dataValue);
+
+            if (typeof result === 'string') {
+              this.error = result;
+            } else {
+              return !!result
+            }
+          } else {
+            return false
+          }
         },
 
         validateMask: function validateMask() {
@@ -905,6 +920,7 @@
 
   var _hoisted_1$7 = ["data-placeholder"];
   var _hoisted_2$6 = ["type", "value", "required", "min", "max", "placeholder", "maxlength"];
+  var _hoisted_3$5 = { class: "text-error text-subtitle-1" };
 
   function render$9(_ctx, _cache, $props, $setup, $data, $options) {
     var _component_the_mask = vue.resolveComponent("the-mask");
@@ -937,6 +953,7 @@
         : (vue.openBlock(), vue.createElementBlock("input", {
             key: 1,
             ref: "input",
+            class: vue.normalizeClass([!!$data.error && 'input-error']),
             type: $data.inputType,
             value: _ctx.modelValue,
             required: _ctx.question.required,
@@ -988,7 +1005,8 @@
     }),
             placeholder: _ctx.placeholder,
             maxlength: _ctx.question.maxLength
-          }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_2$6))
+          }, null, 42 /* CLASS, PROPS, HYDRATE_EVENTS */, _hoisted_2$6)),
+      vue.createElementVNode("span", _hoisted_3$5, vue.toDisplayString($data.error), 1 /* TEXT */)
     ], 8 /* PROPS */, _hoisted_1$7))
   }
 

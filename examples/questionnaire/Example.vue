@@ -21,7 +21,7 @@
       v-bind:language="language"
       v-bind:standalone="false"
     >
-      <question type="sectionbreak" id="test" :component="testComponent" />
+      <question type="text" id="test" :validate="validate" required/>
     </flow-form>
   </div>
 </template>
@@ -253,6 +253,9 @@
     },
 
     methods: {
+      validate(v) {
+        return !!v.match(/test/) || 'Entry needs to be "test"'
+      },
       onKeyListener($event) {
         // We've overriden the default "complete" slot so
         // we need to implement the "keyup" listener manually.

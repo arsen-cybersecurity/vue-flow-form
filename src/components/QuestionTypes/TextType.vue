@@ -22,6 +22,7 @@
     <input
       v-else
       ref="input"
+      :class="[!!error && 'input-error']"
       v-bind:type="inputType"
       v-bind:value="modelValue"
       v-bind:required="question.required"
@@ -37,6 +38,7 @@
       v-bind:placeholder="placeholder"
       v-bind:maxlength="question.maxLength"
     />
+    <span class="text-error text-subtitle-1">{{ error }}</span>
   </span>
 </template>
 
@@ -62,17 +64,30 @@
     data() {
       return {
         inputType: 'text',
-        canReceiveFocus: true
+        canReceiveFocus: true,
+        error: '',
       }
     },
 
     methods: {
       validate() {
+        this.error = ''
+
         if (this.question.mask && this.hasValue) {
           return this.validateMask()
         }
 
-        return !this.question.required || this.hasValue
+        if (!this.question.required || this.hasValue) {
+          const result = this.question.validate(this.dataValue)
+
+          if (typeof result === 'string') {
+            this.error = result
+          } else {
+            return !!result
+          }
+        } else {
+          return false
+        }
       },
 
       validateMask() {
@@ -85,3 +100,10 @@
     }
   }
 </script>
+
+<style>
+.vff .input-error[class] {
+border-color: #ff0033;
+}
+
+</style>

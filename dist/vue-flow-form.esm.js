@@ -175,6 +175,7 @@ var QuestionModel = function QuestionModel(options) {
   this.placeholder = null;
   this.mask = '';
   this.component = null;
+  this.validate = function () { return true; }; 
   this.multiple = false;
   this.allowOther = false;
   this.other = null;
@@ -477,6 +478,7 @@ var script$l = {
           return true
         }
 
+
         return false
       },
       
@@ -560,7 +562,7 @@ var script$k = {
 
 var _hoisted_1$9 = { class: "faux-form" };
 var _hoisted_2$7 = ["value", "required"];
-var _hoisted_3$5 = {
+var _hoisted_3$6 = {
   key: 0,
   label: " ",
   value: "",
@@ -614,7 +616,7 @@ function render$b(_ctx, _cache, $props, $setup, $data, $options) {
       required: _ctx.question.required
     }, [
       (_ctx.question.required)
-        ? (openBlock(), createElementBlock("option", _hoisted_3$5, " "))
+        ? (openBlock(), createElementBlock("option", _hoisted_3$6, " "))
         : createCommentVNode("v-if", true),
       (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.question.options, function (option, index) {
         return (openBlock(), createElementBlock("option", {
@@ -874,17 +876,30 @@ var script$i = {
     data: function data() {
       return {
         inputType: 'text',
-        canReceiveFocus: true
+        canReceiveFocus: true,
+        error: '',
       }
     },
 
     methods: {
       validate: function validate() {
+        this.error = '';
+
         if (this.question.mask && this.hasValue) {
           return this.validateMask()
         }
 
-        return !this.question.required || this.hasValue
+        if (!this.question.required || this.hasValue) {
+          var result = this.question.validate(this.dataValue);
+
+          if (typeof result === 'string') {
+            this.error = result;
+          } else {
+            return !!result
+          }
+        } else {
+          return false
+        }
       },
 
       validateMask: function validateMask() {
@@ -901,6 +916,7 @@ var script$i = {
 
 var _hoisted_1$7 = ["data-placeholder"];
 var _hoisted_2$6 = ["type", "value", "required", "min", "max", "placeholder", "maxlength"];
+var _hoisted_3$5 = { class: "text-error text-subtitle-1" };
 
 function render$9(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_the_mask = resolveComponent("the-mask");
@@ -933,6 +949,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
       : (openBlock(), createElementBlock("input", {
           key: 1,
           ref: "input",
+          class: normalizeClass([!!$data.error && 'input-error']),
           type: $data.inputType,
           value: _ctx.modelValue,
           required: _ctx.question.required,
@@ -984,7 +1001,8 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
   }),
           placeholder: _ctx.placeholder,
           maxlength: _ctx.question.maxLength
-        }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_2$6))
+        }, null, 42 /* CLASS, PROPS, HYDRATE_EVENTS */, _hoisted_2$6)),
+    createElementVNode("span", _hoisted_3$5, toDisplayString($data.error), 1 /* TEXT */)
   ], 8 /* PROPS */, _hoisted_1$7))
 }
 
