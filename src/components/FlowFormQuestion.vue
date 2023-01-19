@@ -121,7 +121,7 @@
 
   export default {
     name: 'FlowFormQuestion',
-
+    emits: ['disable', 'answer'],
     components: {
       FlowFormDateType,
       FlowFormDropdownType,

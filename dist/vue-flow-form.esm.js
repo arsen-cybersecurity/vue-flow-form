@@ -339,7 +339,7 @@ var IsMobile = {
 
 var script$l = {
     name: 'FlowFormBaseType',
-
+    emits: ['update:modelValue'],
     props: {
       language: LanguageModel,
       question: QuestionModel,
@@ -2362,7 +2362,7 @@ script$3.__file = "src/components/QuestionTypes/IconRateType.vue";
 
 var script$2 = {
     name: 'FlowFormQuestion',
-
+    emits: ['disable', 'answer'],
     components: {
       FlowFormDateType: script$7,
       FlowFormDropdownType: script$k,
@@ -2840,7 +2840,7 @@ var ComponentInstance = {
 
 var script$1 = {
     name: 'FlowForm',
-
+    emits: ['timer', 'step', 'answer', 'submit', 'complete'],
     components: {
       FlowFormQuestion: script$2
     },
@@ -3712,7 +3712,7 @@ script$1.__file = "src/components/FlowForm.vue";
 
 var script = {
     name: 'Question',
-
+    emits: ['update:modelValue'],
     mixins: [
       ComponentInstance
     ],

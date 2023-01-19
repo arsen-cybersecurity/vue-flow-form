@@ -3,7 +3,7 @@
 
   export default {
     name: 'Question',
-
+    emits: ['update:modelValue'],
     mixins: [
       ComponentInstance
     ],

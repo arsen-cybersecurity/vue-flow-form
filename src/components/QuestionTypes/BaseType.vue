@@ -13,7 +13,7 @@
 
   export default {
     name: 'FlowFormBaseType',
-
+    emits: ['update:modelValue'],
     props: {
       language: LanguageModel,
       question: QuestionModel,

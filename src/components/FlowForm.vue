@@ -140,7 +140,7 @@
 
   export default {
     name: 'FlowForm',
-
+    emits: ['timer', 'step', 'answer', 'submit', 'complete'],
     components: {
       FlowFormQuestion
     },

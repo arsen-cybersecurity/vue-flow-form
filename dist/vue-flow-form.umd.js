@@ -343,7 +343,7 @@
 
   var script$l = {
       name: 'FlowFormBaseType',
-
+      emits: ['update:modelValue'],
       props: {
         language: LanguageModel,
         question: QuestionModel,
@@ -2366,7 +2366,7 @@
 
   var script$2 = {
       name: 'FlowFormQuestion',
-
+      emits: ['disable', 'answer'],
       components: {
         FlowFormDateType: script$7,
         FlowFormDropdownType: script$k,
@@ -2844,7 +2844,7 @@
 
   var script$1 = {
       name: 'FlowForm',
-
+      emits: ['timer', 'step', 'answer', 'submit', 'complete'],
       components: {
         FlowFormQuestion: script$2
       },
@@ -3716,7 +3716,7 @@
 
   var script = {
       name: 'Question',
-
+      emits: ['update:modelValue'],
       mixins: [
         ComponentInstance
       ],
