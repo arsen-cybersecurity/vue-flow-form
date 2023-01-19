@@ -1,4 +1,4 @@
-.vff .input-error[class]{border-color:#f03}
+.vff .input-error[class]{border-color:#f03}.vff .f-invalid{color:#f03}
 /*!
     Copyright (c) 2020 - present, DITDOT Ltd. - MIT Licence
     https://github.com/ditdot-dev/vue-flow-form

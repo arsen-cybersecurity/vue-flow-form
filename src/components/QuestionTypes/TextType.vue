@@ -34,7 +34,7 @@
       v-on:blur="unsetFocus"
       v-bind:min="question.min"
       v-bind:max="question.max"
-      v-on:change="onChange"
+      v-on:input="onChange"
       v-bind:placeholder="placeholder"
       v-bind:maxlength="question.maxLength"
     />
@@ -104,6 +104,10 @@
 <style>
 .vff .input-error[class] {
 border-color: #ff0033;
+}
+
+.vff .f-invalid {
+  color: #ff0033;
 }
 
 </style>

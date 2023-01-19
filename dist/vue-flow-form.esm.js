@@ -993,7 +993,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
   }),
           min: _ctx.question.min,
           max: _ctx.question.max,
-          onChange: _cache[6] || (_cache[6] = function () {
+          onInput: _cache[6] || (_cache[6] = function () {
             var args = [], len = arguments.length;
             while ( len-- ) args[ len ] = arguments[ len ];
 
