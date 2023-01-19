@@ -97,7 +97,7 @@
 
   export default {
     extends: BaseType,
-    
+    inheritAttrs: false,
     name: QuestionType.Matrix,
 
     data() {

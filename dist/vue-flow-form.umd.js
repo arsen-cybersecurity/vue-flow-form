@@ -870,6 +870,7 @@
   var script$i = {
       extends: script$l,
       name: QuestionType.Text,
+      inheritAttrs: false,
       components: {
         TheMask: script$j
       },
@@ -1148,7 +1149,7 @@
 
   var script$f = {
       extends: script$l,
-
+      inheritAttrs: false,
       name: QuestionType.LongText,
 
       components: {
@@ -1619,6 +1620,7 @@
   var script$9 = {
       extends: script$l,
       name: QuestionType.SectionBreak,
+      inheritAttrs: false,
       methods: {
         onEnter: function onEnter() {
           this.dirty = true;
@@ -1655,6 +1657,7 @@
   var script$8 = {
       extends: script$i,
       name: QuestionType.Url,
+      inheritAttrs: false,
       data: function data() {
         return {
           inputType: 'url'
@@ -1891,7 +1894,7 @@
 
   var script$5 = {
       extends: script$l,
-      
+      inheritAttrs: false,
       name: QuestionType.Matrix,
 
       data: function data() {

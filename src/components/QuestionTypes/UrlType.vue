@@ -11,6 +11,7 @@
   export default {
     extends: TextType,
     name: QuestionType.Url,
+    inheritAttrs: false,
     data() {
       return {
         inputType: 'url'

@@ -19,6 +19,7 @@
   export default {
     extends: BaseType,
     name: QuestionType.SectionBreak,
+    inheritAttrs: false,
     methods: {
       onEnter() {
         this.dirty = true

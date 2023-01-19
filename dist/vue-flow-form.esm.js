@@ -866,6 +866,7 @@ script$j.__file = "node_modules/vue-the-mask/src/component.vue";
 var script$i = {
     extends: script$l,
     name: QuestionType.Text,
+    inheritAttrs: false,
     components: {
       TheMask: script$j
     },
@@ -1144,7 +1145,7 @@ script$g.__file = "node_modules/vue-textarea-autosize/src/components/TextareaAut
 
 var script$f = {
     extends: script$l,
-
+    inheritAttrs: false,
     name: QuestionType.LongText,
 
     components: {
@@ -1615,6 +1616,7 @@ script$a.__file = "src/components/QuestionTypes/PhoneType.vue";
 var script$9 = {
     extends: script$l,
     name: QuestionType.SectionBreak,
+    inheritAttrs: false,
     methods: {
       onEnter: function onEnter() {
         this.dirty = true;
@@ -1651,6 +1653,7 @@ script$9.__file = "src/components/QuestionTypes/SectionBreakType.vue";
 var script$8 = {
     extends: script$i,
     name: QuestionType.Url,
+    inheritAttrs: false,
     data: function data() {
       return {
         inputType: 'url'
@@ -1887,7 +1890,7 @@ script$6.__file = "src/components/QuestionTypes/FileType.vue";
 
 var script$5 = {
     extends: script$l,
-    
+    inheritAttrs: false,
     name: QuestionType.Matrix,
 
     data: function data() {

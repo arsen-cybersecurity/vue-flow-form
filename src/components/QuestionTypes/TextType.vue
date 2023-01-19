@@ -54,6 +54,7 @@
   export default {
     extends: BaseType,
     name: QuestionType.Text,
+    inheritAttrs: false,
     components: {
       TheMask
     },

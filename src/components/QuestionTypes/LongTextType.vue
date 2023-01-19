@@ -31,7 +31,7 @@
 
   export default {
     extends: BaseType,
-
+    inheritAttrs: false,
     name: QuestionType.LongText,
 
     components: {
