@@ -525,7 +525,7 @@
 
   var script$k = {
       extends: script$l,
-
+      emits: ['next'],
       name: QuestionType.Dropdown,
 
       computed: {
@@ -1228,7 +1228,7 @@
   var script$e = {
       extends: script$l,
       name: QuestionType.MultipleChoice,
-
+      emits: ['next'],
       data: function data() {
         return {
           editingOther: false,
@@ -2105,7 +2105,7 @@
   var script$4 = {
       extends: script$l,
       name: QuestionType.OpinionScale,
-
+      emits: ['next'],
       data: function data() {
         return {
           isIconScale: false,

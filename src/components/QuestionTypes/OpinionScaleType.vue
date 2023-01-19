@@ -51,7 +51,7 @@
   export default {
     extends: BaseType,
     name: QuestionType.OpinionScale,
-
+    emits: ['next'],
     data() {
       return {
         isIconScale: false,

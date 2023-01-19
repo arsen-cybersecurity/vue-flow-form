@@ -525,7 +525,7 @@ script$l.__file = "src/components/QuestionTypes/BaseType.vue";
 
 var script$k = {
     extends: script$l,
-
+    emits: ['next'],
     name: QuestionType.Dropdown,
 
     computed: {
@@ -1228,7 +1228,7 @@ script$f.__file = "src/components/QuestionTypes/LongTextType.vue";
 var script$e = {
     extends: script$l,
     name: QuestionType.MultipleChoice,
-
+    emits: ['next'],
     data: function data() {
       return {
         editingOther: false,
@@ -2105,7 +2105,7 @@ script$5.__file = "src/components/QuestionTypes/MatrixType.vue";
 var script$4 = {
     extends: script$l,
     name: QuestionType.OpinionScale,
-
+    emits: ['next'],
     data: function data() {
       return {
         isIconScale: false,

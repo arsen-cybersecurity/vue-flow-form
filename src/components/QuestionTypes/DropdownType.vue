@@ -47,7 +47,7 @@
 
   export default {
     extends: BaseType,
-
+    emits: ['next'],
     name: QuestionType.Dropdown,
 
     computed: {

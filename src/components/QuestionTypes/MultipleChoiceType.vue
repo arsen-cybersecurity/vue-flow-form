@@ -61,7 +61,7 @@
   export default {
     extends: BaseType,
     name: QuestionType.MultipleChoice,
-
+    emits: ['next'],
     data() {
       return {
         editingOther: false,
