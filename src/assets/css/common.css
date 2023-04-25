@@ -227,7 +227,7 @@ header.vff-header svg.f-logo {
   form elements
 */
 
-.vff button,
+.vff button:not(.v-btn),
 .vff input,
 .vff optgroup,
 .vff select,
