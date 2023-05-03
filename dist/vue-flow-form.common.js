@@ -2927,7 +2927,6 @@ var script$1 = {
     mounted: function mounted() {
       document.addEventListener('keydown', this.onKeyDownListener);
       document.addEventListener('keyup', this.onKeyUpListener, true);
-      window.addEventListener('beforeunload', this.onBeforeUnload);
 
       this.setQuestions();
       this.checkTimer();
@@ -2936,7 +2935,6 @@ var script$1 = {
     beforeUnmount: function beforeUnmount() {
       document.removeEventListener('keydown', this.onKeyDownListener);
       document.removeEventListener('keyup', this.onKeyUpListener, true);
-      window.removeEventListener('beforeunload', this.onBeforeUnload);
       
       this.stopTimer();
     },

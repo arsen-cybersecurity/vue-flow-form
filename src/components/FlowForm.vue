@@ -202,7 +202,6 @@
     mounted() {
       document.addEventListener('keydown', this.onKeyDownListener)
       document.addEventListener('keyup', this.onKeyUpListener, true)
-      window.addEventListener('beforeunload', this.onBeforeUnload)
 
       this.setQuestions()
       this.checkTimer()
@@ -211,7 +210,6 @@
     beforeUnmount() {
       document.removeEventListener('keydown', this.onKeyDownListener)
       document.removeEventListener('keyup', this.onKeyUpListener, true)
-      window.removeEventListener('beforeunload', this.onBeforeUnload)
       
       this.stopTimer()
     },
